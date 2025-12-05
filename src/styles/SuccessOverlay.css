@@ -1,0 +1,378 @@
+/* SuccessOverlay - Arabian Nights Theme */
+
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 15, 50, 0.98) 0%,
+    rgba(75, 35, 90, 0.98) 50%,
+    rgba(139, 90, 60, 0.98) 100%
+  );
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: overlayFadeIn 0.6s ease-out;
+  overflow: hidden;
+}
+
+@keyframes overlayFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mystical Background Effects */
+.success-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
+  animation: backgroundShift 8s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.success-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="rgba(255,215,0,0.05)" /></svg>');
+  background-size: 100px 100px;
+  animation: starPattern 60s linear infinite;
+}
+
+@keyframes starPattern {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+/* Door Animation Container */
+.door-animation {
+  position: relative;
+  margin-bottom: 3rem;
+  animation: doorEntrance 1s ease-out;
+}
+
+@keyframes doorEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+.door-icon {
+  color: #ffd700;
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+  animation: doorSwing 2s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes doorSwing {
+  0%,
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(400px) rotateY(25deg);
+  }
+}
+
+/* Magical Particles */
+.particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  animation: particleFloat 3s ease-in-out infinite;
+}
+
+.particle:nth-child(odd) {
+  animation-duration: 2.5s;
+}
+
+.particle:nth-child(even) {
+  animation-duration: 3.5s;
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Success Text */
+.success-text {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-align: center;
+  margin: 0 2rem 1rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5),
+    0 0 90px rgba(255, 215, 0, 0.3);
+  animation: textEntrance 1s ease-out 0.5s both, textGlow 2s ease-in-out 1.5s infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes textEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px);
+  }
+  60% {
+    transform: scale(1.1) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5),
+      0 0 90px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.8),
+      0 0 120px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* Success Subtitle */
+.success-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #f4e4c1;
+  text-align: center;
+  margin: 0 2rem;
+  text-shadow: 0 2px 20px rgba(255, 215, 0, 0.4);
+  animation: subtitleFade 1s ease-out 1s both;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes subtitleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Treasure Chest Opening Effect */
+.treasure-effect {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem;
+  animation: treasureReveal 2s ease-out;
+}
+
+@keyframes treasureReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100px) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-200px) scale(0.5);
+  }
+}
+
+/* Magical Rays */
+.magic-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.magic-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), transparent);
+  transform-origin: top center;
+  animation: rayRotate 4s linear infinite;
+}
+
+.magic-ray:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.magic-ray:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+.magic-ray:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+.magic-ray:nth-child(4) {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.magic-ray:nth-child(5) {
+  transform: translate(-50%, -50%) rotate(240deg);
+}
+.magic-ray:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(300deg);
+}
+
+@keyframes rayRotate {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Fireworks Effect */
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  animation: fireworkExplode 1.5s ease-out infinite;
+}
+
+@keyframes fireworkExplode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .door-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .success-text {
+    font-size: 3rem;
+    margin: 0 1rem 1rem;
+  }
+
+  .success-subtitle {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .door-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .success-text {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .success-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Golden Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffd700;
+  animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}

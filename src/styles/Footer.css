@@ -1,0 +1,161 @@
+/* Footer - Arabian Nights Theme */
+
+.footer {
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, rgba(75, 35, 90, 0.8) 0%, rgba(30, 15, 50, 0.9) 100%);
+  border-top: 3px solid #d4af37;
+  box-shadow: 0 -10px 40px rgba(212, 175, 55, 0.3), inset 0 0 60px rgba(138, 43, 226, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  animation: footerShimmer 3s ease-in-out infinite;
+}
+
+@keyframes footerShimmer {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.footer p {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #d4c5a0;
+  letter-spacing: 1.5px;
+  margin: 0.5rem 0;
+  animation: footerTextGlow 3s ease-in-out infinite;
+}
+
+@keyframes footerTextGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.footer-sub {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic;
+  font-size: 0.95rem !important;
+  color: #b8a77d;
+  letter-spacing: 1px !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Decorative Elements */
+.footer::after {
+  content: '⭐';
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  animation: starFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+@keyframes starFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(180deg);
+  }
+}
+
+/* Magic Sparkles */
+.footer-sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  animation: footerSparkle 4s ease-in-out infinite;
+  opacity: 0;
+}
+
+.footer-sparkle:nth-child(1) {
+  left: 10%;
+  top: 30%;
+  animation-delay: 0s;
+}
+
+.footer-sparkle:nth-child(2) {
+  left: 30%;
+  top: 60%;
+  animation-delay: 1s;
+}
+
+.footer-sparkle:nth-child(3) {
+  right: 10%;
+  top: 40%;
+  animation-delay: 2s;
+}
+
+.footer-sparkle:nth-child(4) {
+  right: 30%;
+  top: 70%;
+  animation-delay: 3s;
+}
+
+@keyframes footerSparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+  }
+
+  .footer-sub {
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .footer-sub {
+    font-size: 0.75rem !important;
+  }
+}

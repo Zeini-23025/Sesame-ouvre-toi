@@ -1,0 +1,368 @@
+/* VoiceAuth - Arabian Nights Theme */
+
+.mic-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  margin: 2rem 0;
+}
+
+.mic-button {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2d 100%);
+  border: 4px solid #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.mic-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 50px rgba(255, 215, 0, 0.7), inset 0 0 40px rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+.mic-button:active {
+  transform: scale(0.95);
+}
+
+.mic-button svg {
+  color: #1a0b2e;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.mic-button.recording {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  border-color: #ff4444;
+  animation: recordingPulse 1.5s ease-in-out infinite;
+  box-shadow: 0 10px 40px rgba(255, 107, 107, 0.7), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes recordingPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 40px rgba(255, 107, 107, 0.7), inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 60px rgba(255, 107, 107, 1), inset 0 0 50px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.mic-button.recording svg {
+  color: white;
+  animation: micShake 0.3s ease-in-out infinite;
+}
+
+@keyframes micShake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Mic Glow Effect */
+.mic-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+  50% {
+    width: 140%;
+    height: 140%;
+    opacity: 0.8;
+  }
+}
+
+/* Pulse Rings */
+.pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  border: 3px solid #ffd700;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.pulse-ring.ring-1 {
+  animation-delay: 0s;
+}
+
+.pulse-ring.ring-2 {
+  animation-delay: 0.6s;
+}
+
+.pulse-ring.ring-3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes pulseRing {
+  0% {
+    width: 180px;
+    height: 180px;
+    opacity: 1;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+/* Sound Wave Animation */
+.mic-button.recording::before,
+.mic-button.recording::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 107, 0.6);
+  animation: soundWave 1.5s ease-out infinite;
+}
+
+.mic-button.recording::after {
+  animation-delay: 0.75s;
+}
+
+@keyframes soundWave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Magical Particles During Recording */
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Voice Wave Visualization */
+.voice-wave {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 60px;
+}
+
+.voice-bar {
+  width: 6px;
+  background: linear-gradient(to top, #ffd700, #d4af37);
+  border-radius: 3px;
+  animation: voiceWave 0.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.voice-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+.voice-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.voice-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.voice-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.voice-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes voiceWave {
+  0%,
+  100% {
+    height: 10px;
+  }
+  50% {
+    height: 50px;
+  }
+}
+
+/* Instruction Text Specific to Voice */
+.mic-container + .instruction {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #d4c5a0;
+  margin: 2rem 0;
+  font-style: italic;
+  animation: instructionFade 0.5s ease-in;
+}
+
+@keyframes instructionFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Recording Indicator Badge */
+.recording-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+  animation: badgeBlink 1s ease-in-out infinite;
+}
+
+@keyframes badgeBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Mystical Sparkles Around Mic */
+.mic-sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  animation: sparkleOrbit 3s linear infinite;
+}
+
+.mic-sparkle:nth-child(1) {
+  animation-delay: 0s;
+  --orbit-angle: 0deg;
+}
+.mic-sparkle:nth-child(2) {
+  animation-delay: 1s;
+  --orbit-angle: 120deg;
+}
+.mic-sparkle:nth-child(3) {
+  animation-delay: 2s;
+  --orbit-angle: 240deg;
+}
+
+@keyframes sparkleOrbit {
+  0% {
+    transform: rotate(var(--orbit-angle, 0deg)) translateX(120px) scale(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(var(--orbit-angle, 0deg)) translateX(120px) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(calc(var(--orbit-angle, 0deg) + 360deg)) translateX(120px) scale(1);
+  }
+  100% {
+    transform: rotate(calc(var(--orbit-angle, 0deg) + 360deg)) translateX(120px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mic-button {
+    width: 150px;
+    height: 150px;
+  }
+
+  .mic-button svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pulse-ring {
+    width: 150px;
+    height: 150px;
+  }
+
+  @keyframes pulseRing {
+    0% {
+      width: 150px;
+      height: 150px;
+      opacity: 1;
+    }
+    100% {
+      width: 350px;
+      height: 350px;
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .mic-container {
+    min-height: 300px;
+  }
+
+  .mic-button {
+    width: 120px;
+    height: 120px;
+  }
+
+  .mic-button svg {
+    width: 50px;
+    height: 50px;
+  }
+}

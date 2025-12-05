@@ -1,0 +1,228 @@
+/* ShapeBuilderAuth - Arabian Nights Theme */
+
+.shape-palette {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(75, 35, 90, 0.6) 0%, rgba(30, 15, 50, 0.7) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 16px;
+}
+
+.shape-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(50, 25, 70, 0.7) 0%, rgba(20, 10, 40, 0.8) 100%);
+  border: 3px solid;
+  border-radius: 12px;
+  cursor: grab;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.shape-item:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.shape-item:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.shape-item span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d4c5a0;
+}
+
+/* Shape Grid */
+.shape-grid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(30, 15, 50, 0.9) 0%, rgba(75, 35, 90, 0.8) 100%);
+  border: 3px solid #d4af37;
+  border-radius: 16px;
+  padding: 1rem;
+  overflow: auto;
+  max-width: 100%;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.grid-cell {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  background: rgba(30, 15, 50, 0.3);
+}
+
+.grid-cell:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.grid-cell.occupied {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.grid-cell.occupied:hover {
+  background: rgba(139, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.placed-shape-icon {
+  animation: shapeAppear 0.4s ease-out;
+}
+
+@keyframes shapeAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Shape Info */
+.shape-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.shape-info p {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Drag and Drop Visual Feedback */
+.shape-item[draggable='true'] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.grid-cell[data-drag-over='true'] {
+  background: rgba(212, 175, 55, 0.3);
+  border-color: #d4af37;
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Empty Grid Helper */
+.shape-grid:empty::after {
+  content: 'Drop shapes here to create your pattern';
+  display: block;
+  text-align: center;
+  padding: 4rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #b8a77d;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid-cell {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .placed-shape-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shape-palette {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .shape-item {
+    flex-direction: row;
+    padding: 1rem;
+    min-width: auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid-cell {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .placed-shape-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .shape-grid {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shape-palette {
+    padding: 1rem;
+  }
+
+  .shape-item {
+    padding: 0.75rem;
+  }
+
+  .shape-item svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .grid-cell {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .placed-shape-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .shape-info p {
+    font-size: 1rem;
+  }
+}
+
+/* Touch Device Support */
+@media (hover: none) and (pointer: coarse) {
+  .shape-item {
+    touch-action: none;
+  }
+
+  .grid-cell:active {
+    background: rgba(212, 175, 55, 0.2);
+  }
+}
