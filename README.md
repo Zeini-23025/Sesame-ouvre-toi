@@ -1,16 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Sesame-ouvre-toi
 
-Currently, two official plugins are available:
+## Présentation du projet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+"Sesame-ouvre-toi" est une application web de démonstration de méthodes d'authentification innovantes et ludiques, développée avec React et Vite. L'objectif est d'explorer différentes façons d'accéder à une interface sécurisée sans utiliser de mots de passe classiques.
 
-## React Compiler
+### Fonctionnalités principales
+- **Sélection de méthode d'authentification** : Choisissez parmi plusieurs méthodes originales pour vous authentifier.
+- **Méthodes disponibles** :
+  - Mélangeur de couleurs (ColorBlender)
+  - Chemin d'emojis (EmojiPathLock)
+  - Motif graphique (PatternAuth)
+  - Rythme (RhythmAuth)
+  - Créateur de formes (ShapeBuilderAuth)
+  - Reconnaissance vocale (VoiceAuth)
+- **Interface moderne** : Design interactif et intuitif, adapté à tous les écrans.
+- **Feedback visuel** : Affichage d'une superposition de succès après authentification.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Structure du projet
+- `src/components/` : Composants React pour chaque méthode d'authentification et éléments d'interface (Header, Footer, etc.)
+- `src/styles/` : Fichiers CSS pour chaque composant et la mise en page générale
+- `public/` : Ressources statiques
 
-## Expanding the ESLint configuration
+### Lancement du projet
+1. Installer les dépendances :
+	```bash
+	npm install
+	```
+2. Démarrer le serveur de développement :
+	```bash
+	npm run dev
+	```
+3. Accéder à l'application sur [http://localhost:5173](http://localhost:5173) (par défaut)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
